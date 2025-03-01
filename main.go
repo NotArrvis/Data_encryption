@@ -27,9 +27,6 @@ func encrypt(key int, plainText string)(result string){
 		}
 		return r
 	}
-
-
-
 	strings.Map(findOne, plainText)
 	return hashedString
 }
@@ -46,8 +43,6 @@ func decrypt(key int, encryptedText string)(result string){
 		}
 		return r
 	}
-
-
 	strings.Map(findOne, encryptedText)
 	return hashedString
 }
