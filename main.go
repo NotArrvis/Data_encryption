@@ -23,18 +23,33 @@ func encrypt(key int, plainText string)(result string){
 		if pos != -1{
 			letterPosition := (pos + len(originalLetter)) % len(originalLetter)
 			hashedString = hashedString + string(hashLetter[letterPosition])
+			return r
 		}
 		return r
 	}
 
 
 
-	strings.map(findOne, plainText)
+	strings.Map(findOne, plainText)
 	return hashedString
 }
 
 func decrypt(key int, encryptedText string)(result string){
+	hashedLetter := hashLetterFn(key, originalLetter)
+	var hashedString = ""
+	findOne := func(r rune)rune{
+		pos := strings.Index(hashedLetter, string([]rune{r}))
+		if pos != -1 {
+			letterPosition := (pos + len(originalLetter)) % len(originalLetter)
+			hashedString = hashedString + string(originalLetter[letterPosition])
+			return r
+		}
+		return r
+	}
 
+
+	strings.Map(findOne, encryptedText)
+	return hashedString
 }
 
 func main(){
